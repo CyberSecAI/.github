@@ -1,8 +1,4 @@
-# CVE Enrichment
-
-
-
-# User Scenarios
+# CVE Enrichment User Scenarios
 
 - [User Scenarios](#user-scenarios)
   - [Extract Key Phrases from Vulnerability Description](#extract-key-phrases-from-vulnerability-description)
