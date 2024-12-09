@@ -1,10 +1,51 @@
 # CVE Enrichment
 
+
+
 # User Scenarios
 
-## Key Phrases from Vulnerability Description 
+- [User Scenarios](#user-scenarios)
+  - [Extract Key Phrases from Vulnerability Description](#extract-key-phrases-from-vulnerability-description)
+    - [Solution](#solution)
+    - [Background](#background)
+    - [Narrative](#narrative)
+      - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now)
+      - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational)
+  - [Create Vulnerability Description from Advisory, Patch, and other existing vulnerability information](#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information)
+    - [Solution Proof Of Concept](#solution-proof-of-concept)
+    - [Background](#background-1)
+    - [Narrative](#narrative-1)
+      - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-1)
+        - [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions)
+      - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-1)
+  - [Rate Vulnerability Description Quality](#rate-vulnerability-description-quality)
+    - [Solution Idea](#solution-idea)
+    - [Background](#background-2)
+    - [Narrative](#narrative-2)
+      - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
+      - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-2)
+  - [Bulk Assign CWEs](#bulk-assign-cwes)
+    - [Solution Proof Of Concept](#solution-proof-of-concept-1)
+    - [Background](#background-3)
+    - [Narrative](#narrative-3)
+      - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-3)
+      - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-3)
+  - [Create a CWE Expert: Interactively Assign CWEs](#create-a-cwe-expert-interactively-assign-cwes)
+    - [Solution](#solution-1)
+    - [Background](#background-4)
+    - [Narrative](#narrative-4)
+      - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-4)
+      - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-4)
+- [User Stories](#user-stories)
+  - [Bulk Check CWEs](#bulk-check-cwes)
+  - [CVE Description Duplicates](#cve-description-duplicates)
 
-### Solution:
+
+
+
+## Extract Key Phrases from Vulnerability Description 
+
+### Solution
 
 > [!TIP]
 > See https://github.com/CyberSecAI/cve_info.
@@ -15,11 +56,12 @@
 > - Optional: mitre_technical_impacts: The Impact(s) mapped to MITRE Technical Impacts per https://cwe.mitre.org/community/swa/priority.html
 
 > [!NOTE] 
-> Point 4. covers Vulnerability Description Quality: "provides a rating of the quality of CVE Descriptions e.g. if a Vulnerability Description does not meet some minimum standard, then it is flagged." This is covered as part of User Scenario "Create Vulnerability Description from Advisory, Patch, and other existing vulnerability information"
+> Point 4. from the Pre-Narrative is about Vulnerability Description Quality: "provides a rating of the quality of CVE Descriptions e.g. if a Vulnerability Description does not meet some minimum standard, then it is flagged." 
+> - This is covered as part of User Scenario "Create Vulnerability Description from Advisory, Patch, and other existing vulnerability information"
 
 
 
-### Background: 
+### Background 
 Vulnerability Descriptions should use [Key Details Phrasing](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) because _"the correct amount and type of information in a description is important"._
 
 There are many use cases associated with using this Vulnerability Description:
@@ -28,7 +70,7 @@ There are many use cases associated with using this Vulnerability Description:
 
 Vulnerability Descriptions range significantly in quality, and there are even descriptions that have no vulnerability information.
 
-### Narrative: 
+### Narrative 
 
 #### Pre-Narrative (how things are now)
 
@@ -42,8 +84,7 @@ For all CVEs, the Key Phrases from Vulnerability Description are available in a 
 1. is publicly available
 2. is consistent format
 3. allows feedback and updating
-4. provides a rating of the quality of CVE Descriptions e.g. if a Vulnerability Description does not meet some minimum standard, then it is flagged.
-5. is accurate i.e. the Key Phrases are correct for the Vulnerability Description
+4. is accurate i.e. the Key Phrases are correct for the Vulnerability Description
 
 This increases the quality of Vulnerability Descriptions, and the associated data derived from them.
 
@@ -53,7 +94,7 @@ This increases the quality of Vulnerability Descriptions, and the associated dat
 ### Solution Proof Of Concept
 
 > [!TIP]
-> See https://github.com/orgs/CyberSecAI/projects/2/views/1?pane=issue&itemId=86534944&issue=CyberSecAI%7CCWEMap%7C34 comments for Proof Of Concept demo examples.
+> See https://github.com/orgs/CyberSecAI/projects/2/views/1?pane=issue&itemId=86534944&issue=CyberSecAI%7CCWEMap%7C34 comments for Proof Of Concept demo examples of creating a CVE vulnerability Description from a set of links.
 
 ### Background
 Currently, in general, Vulnerability Descriptions are generated manually - and often lack quality and consistency.
@@ -71,14 +112,14 @@ Broadly, there's 2 approaches:
 
 Notes
 1. Reducing human/manual effort would be my overall approach to improving CVE enrichment i.e. approach 1.
-2. This relates to extracting data from CVE reference links to inform CWE, and KeyPhrase, MITRE Technical Impact
+2. This relates to extracting data from CVE reference links to inform CWE, and KeyPhrase, MITRE Technical Impact.
 
-### Narrative: 
+### Narrative 
 
 #### Pre-Narrative (how things are now)
 A user, based on their understanding of the vulnerability, and what makes a good vulnerability description, manually writes the Vulnerability Description.
 
-Some issues with vulnerability Descriptions:
+##### Some issues with vulnerability Descriptions:
 1. They lack information on the vulnerability. 
    1. In extreme cases they can have no vulnerability information e.g. the original description for https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection 
 2. They don't follow the [template](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf)
@@ -97,12 +138,61 @@ It should be easy for users to do the right thing i.e. the easy path gives the b
 - user supplied info
 
 
-## Assign CWE
+
+
+## Rate Vulnerability Description Quality
+
+### Solution Idea
+
+> [!TIP]
+> The [Extracted Key Phrases from a CVE Vulnerability Description](#extract-key-phrases-from-vulnerability-description) can be used to determine if a CVE Description contains sufficient vulnerability information or not.
+
+> [!CAUTION] 
+> The requirements need to be fleshed out for this...
+
+
+
+### Background
+
+See [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions) for background on Vulnerability Description quality issues.
+
+Vulnerability Description Quality can be rated by:
+1. How much information it has on the vulnerability e.g. what [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) are present.
+2. Having only characters from a specified character set e.g. ASCII or UTF-8.
+3. Spelling and grammar issues.
+  
+
+
+### Narrative 
+
+#### Pre-Narrative (how things are now)
+
+Low Quality Vulnerability Descriptions are present in published CVEs.
+
+#### Post-Narrative (how we want things to be in the future - aspirational)
+
+A rating of the quality of CVE Descriptions is applied 
+- if a Vulnerability Description does not meet some minimum standard, then it is flagged.
+- the quality issues are listed
+- an overall score is given
+
+Users can immediately determine of their CVE Description meets the required quality rating.
+
+Low Quality Vulnerability Descriptions are eradicated from published CVEs by
+1. Detecting Low Quality Vulnerability Descriptions 
+2. Rejecting Low Quality Vulnerability Descriptions 
+
+
+
+
+
+
+## Bulk Assign CWEs
 
 ### Solution Proof Of Concept
 
 > [!TIP]
-> See https://github.com/cisagov/vulnrichment/issues?q=is%3Aissue%20state%3Aclosed%20author%3ACrashedmind as some auto-generated CWE assignment examples for CISA Vulnrichment.
+> See https://github.com/cisagov/vulnrichment/issues?q=is%3Aissue%20state%3Aclosed%20author%3ACrashedmind for some auto-generated CWE assignment examples for CISA Vulnrichment.
 >
 > These include 
 > - CVE Description extracted KeyPhrases
@@ -110,8 +200,7 @@ It should be easy for users to do the right thing i.e. the easy path gives the b
 > - Assigned CWE with the CWE mapping meta data 
 
 
-
-### Background: 
+### Background 
 
 
 Per [CWE Guidance](https://cwe.mitre.org/documents/cwe_usage/guidance.html)
@@ -133,7 +222,7 @@ There are ~~1000 CWEs, and the PDF version is almost 3000 pages.
 
 
 
-### Narrative: 
+### Narrative 
 
 #### Pre-Narrative (how things are now)
 People struggle with the amount of information in [MITRE CWE](https://cwe.mitre.org/), and may not have the understanding of security required to assign CWEs.
@@ -143,28 +232,52 @@ Today, assigning CWEs is not done accurately at scale by the vulnerability manag
 #### Post-Narrative (how we want things to be in the future - aspirational)
 Given a Vulnerability Description and related text (e.g. from bug or vulnerability references), the CWE(s) are automatically assigned with
 1. the root cause and other weakness highlighted
-2. the rationale for their choice including other CVE examples with similar weakness(es) and CWE assignment(s).
+2. the rationale for their choice including other CVE examples from CWE Observed Examples or CWE Top25 Mappings with similar weakness(es) and CWE assignment(s).
 3. the chain of CWEs from root cause to follow on weaknesses
 
 
 
-# User Story
-## BULK_EXTRACT_KEYPHRASES
-As any user, I want to assign KeyPhrases to CVE Descriptions in bulk automatically, so I can have the KeyPhrases for many/all CVE Descriptions.
 
-## BULK_ASSIGN_CWES
-As any user, I want to assign CWEs to CVE Descriptions in bulk automatically, so I can have the CWEs for many/all CVE Descriptions.
+## Create a CWE Expert: Interactively Assign CWEs
 
-## BULK_CHECK_CWES
-As any user, I want to check CWEs for CVE Descriptions in bulk automatically, so I can then assign the correct CWEs.
+### Solution 
 
-## INTERACTIVE_ASSIGN_CWES
-As any user, I want to assign CWEs with the assistance of an expert on MITRE CWE specification, and security 
+> [!TIP]
+> A CWE-Expert can be built for free in a browser in less than 5 minutes using the CWE Corpus files and prompts https://github.com/CyberSecAI/CWE-Expert.
+> 
+> See https://cybersecai.github.io/CWE_Assignment/NotebookLM_Cwe/ for background.
+
+
+
+### Background 
+As any user, I want to assign CWEs with the assistance of an expert on MITRE CWE specification and security 
 * to be able to get answers to my questions
 * to get recommendations
 * to be able to provide input and feedback to the expert
 
-## CVE_DESCRIPTION_DUPLICATES
+### Narrative 
+
+#### Pre-Narrative (how things are now)
+
+Users need to have a deep understanding of the MITRE CWE specification, or need to spend time searching for the appropriate CWE information.
+
+#### Post-Narrative (how we want things to be in the future - aspirational)
+
+Users can chat with a CWE expert that can provide CWE recommendations for vulnerability descriptions, and answer general questions of CWEs.
+
+
+# User Stories
+
+User Stories are shorter, more point specific requirements than User Scenarios.
+
+## Bulk Check CWEs
+As any user, I want to check CWEs for CVE Descriptions in bulk automatically, so I can then assign the correct CWEs.
+
+> [!TIP]
+> A Solution Proof Of Concept was implemented that asked a Consensus of 3 state of the art LLMs if the a population of CWEs assigned by CISA Vulnrichment was correct or not. 
+> 
+
+## CVE Description Duplicates
 As any user, I want to know what CVE Descriptions are exact or close (fuzzy) Duplicates
 
 > [!TIP]
