@@ -20,7 +20,6 @@
     - [Background](#background-2)
     - [Narrative](#narrative-2)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
-        - [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-2)
   - [Bulk Assign CWEs](#bulk-assign-cwes)
     - [Solution Proof Of Concept](#solution-proof-of-concept-1)
@@ -52,12 +51,6 @@
 > - description: original CVE Description
 > - keyphrases: Vulnerability Key Phrases extracted from the CVE Description per https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf
 > - Optional: mitre_technical_impacts: The Impact(s) mapped to MITRE Technical Impacts per https://cwe.mitre.org/community/swa/priority.html
-
-> [!NOTE] 
-> Point 4. from the Pre-Narrative is about Vulnerability Description Quality: "provides a rating of the quality of CVE Descriptions e.g. if a Vulnerability Description does not meet some minimum standard, then it is flagged." 
-> - This is covered as part of User Scenario "Create Vulnerability Description from Advisory, Patch, and other existing vulnerability information"
-
-
 
 ### Background 
 Vulnerability Descriptions should use [Key Details Phrasing](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) because _"the correct amount and type of information in a description is important"._
@@ -166,13 +159,7 @@ Vulnerability Description Quality can be rated by:
 
 #### Pre-Narrative (how things are now)
 
-Low Quality Vulnerability Descriptions are present in published CVEs.
-
-##### Some issues with vulnerability Descriptions:
-1. They lack information on the vulnerability. 
-   1. In extreme cases they can have no vulnerability information e.g. the original description for https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection 
-2. They don't follow the [template](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf)
-3. 
+Vulnerability Description Quality is largely a manual effort - both at Vulnerability Description creation time and CVE publication time.
 
 #### Post-Narrative (how we want things to be in the future - aspirational)
 
