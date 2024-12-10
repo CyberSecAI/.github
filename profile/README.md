@@ -1,6 +1,8 @@
+
+
 # CVE Enrichment User Scenarios
 
-- [User Scenarios](#user-scenarios)
+- [CVE Enrichment User Scenarios](#cve-enrichment-user-scenarios)
   - [Extract Key Phrases from Vulnerability Description](#extract-key-phrases-from-vulnerability-description)
     - [Solution](#solution)
     - [Background](#background)
@@ -12,13 +14,13 @@
     - [Background](#background-1)
     - [Narrative](#narrative-1)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-1)
-        - [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-1)
   - [Rate Vulnerability Description Quality](#rate-vulnerability-description-quality)
     - [Solution Idea](#solution-idea)
     - [Background](#background-2)
     - [Narrative](#narrative-2)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
+        - [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-2)
   - [Bulk Assign CWEs](#bulk-assign-cwes)
     - [Solution Proof Of Concept](#solution-proof-of-concept-1)
@@ -115,12 +117,6 @@ Notes
 #### Pre-Narrative (how things are now)
 A user, based on their understanding of the vulnerability, and what makes a good vulnerability description, manually writes the Vulnerability Description.
 
-##### Some issues with vulnerability Descriptions:
-1. They lack information on the vulnerability. 
-   1. In extreme cases they can have no vulnerability information e.g. the original description for https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection 
-2. They don't follow the [template](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf)
-3. They have typos and other quality issues
-
 #### Post-Narrative (how we want things to be in the future - aspirational)
 
 For all CVEs, the Vulnerability Descriptions
@@ -150,20 +146,33 @@ It should be easy for users to do the right thing i.e. the easy path gives the b
 
 ### Background
 
-See [Some issues with vulnerability Descriptions:](#some-issues-with-vulnerability-descriptions) for background on Vulnerability Description quality issues.
-
 Vulnerability Description Quality can be rated by:
-1. How much information it has on the vulnerability e.g. what [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) are present.
-2. Having only characters from a specified character set e.g. ASCII or UTF-8.
-3. Spelling and grammar issues.
+1. How much information it has on the vulnerability e.g. what [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) are present e.g. 
+   
+   1. https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection original version has no vulnerability information:
+      > "The Xiaomi Security Center expresses heartfelt thanks to Ken Gannon and Ilyes Beghdadi of NCC Group working with Trend Micro Zero Day Initiative! At the same time, we also welcome more outstanding and professional security experts and security teams to join the Mi Security Center (MiSRC) to jointly ensure the safe access of millions of Xiaomi users worldwide Life."
+   2. Only Impact: https://nvd.nist.gov/vuln/detail/CVE-1999-0015:
+      >"Teardrop IP denial of service."
+   3. Product and Weakness: 
+      1. https://nvd.nist.gov/vuln/detail/CVE-2022-23264
+          > Microsoft Edge (Chromium-based) Spoofing Vulnerability
+      2. https://nvd.nist.gov/vuln/detail/CVE-2022-21904
+          > Windows GDI Information Disclosure Vulnerability
+2. Quality issues
+   1. Having only characters from a specified character set e.g. ASCII or UTF-8.  
+   2. Typos, Spelling and grammar issues.
   
-
-
 ### Narrative 
 
 #### Pre-Narrative (how things are now)
 
 Low Quality Vulnerability Descriptions are present in published CVEs.
+
+##### Some issues with vulnerability Descriptions:
+1. They lack information on the vulnerability. 
+   1. In extreme cases they can have no vulnerability information e.g. the original description for https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection 
+2. They don't follow the [template](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf)
+3. 
 
 #### Post-Narrative (how we want things to be in the future - aspirational)
 
