@@ -235,9 +235,17 @@ Given a Vulnerability Description and related text (e.g. from bug or vulnerabili
 ### Solution 
 
 > [!TIP]
-> A CWE-Expert can be built for free in a browser in less than 5 minutes using the CWE Corpus files and prompts https://github.com/CyberSecAI/CWE-Expert.
+> 💁 A CWE-Expert can be built for free in a browser in less than 1 minute using the instruction and CWE Corpus files provided here.
+
+> You can ask your CWE-Expert
+> - any questions about CWEs
+> - to assign CWEs to vulnerability descriptions
+> A CWE-Expert can be built for free in a browser in less than 1 minute using the CWE Corpus files and prompts 
 > 
-> See https://cybersecai.github.io/CWE_Assignment/NotebookLM_Cwe/ for background.
+> See https://github.com/CyberSecAI/CWE-Expert
+ 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DAWJjYCpudE/0.jpg)](https://www.youtube.com/watch?v=DAWJjYCpudE)
 
 
 
