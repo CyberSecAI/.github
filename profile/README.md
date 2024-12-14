@@ -127,15 +127,10 @@ It should be easy for users to do the right thing i.e. the easy path gives the b
 
 ## Rate Vulnerability Description Quality
 
-### Solution Idea
+### Solution
 
 > [!TIP]
-> The [Extracted Key Phrases from a CVE Vulnerability Description](#extract-key-phrases-from-vulnerability-description) can be used to determine if a CVE Description contains sufficient vulnerability information or not.
-
-> [!CAUTION] 
-> The requirements need to be fleshed out for this...
-
-
+> See https://github.com/CyberSecAI/VulnerabilityDescriptionQualityChecker for an analyis of how much information is in Vulnerability Descriptions; specifically [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) present.
 
 ### Background
 
