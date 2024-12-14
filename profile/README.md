@@ -169,7 +169,7 @@ A rating of the quality of CVE Descriptions is applied
 - the quality issues are listed
 - an overall score is given
 
-Users can immediately determine of their CVE Description meets the required quality rating.
+Users can immediately determine if their CVE Description meets the required quality rating.
 
 Low Quality Vulnerability Descriptions are eradicated from published CVEs by
 1. Detecting Low Quality Vulnerability Descriptions 
