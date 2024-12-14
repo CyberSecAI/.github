@@ -154,6 +154,7 @@ Vulnerability Description Quality can be rated by:
 2. Quality issues
    1. Having only characters from a specified character set e.g. ASCII or UTF-8.  
    2. Typos, Spelling and grammar issues.
+   3. Containing HTML tags
   
 ### Narrative 
 
