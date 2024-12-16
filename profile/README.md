@@ -16,6 +16,8 @@
   - [Rate Vulnerability Description Quality](#rate-vulnerability-description-quality)
     - [Solution](#solution-1)
     - [Background](#background-2)
+      - [How much information is in the Vulnerability Description](#how-much-information-is-in-the-vulnerability-description)
+      - [General Vulnerability Description Quality Issues](#general-vulnerability-description-quality-issues)
     - [Narrative](#narrative-2)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-2)
@@ -134,7 +136,8 @@ It should be easy for users to do the right thing i.e. the easy path gives the b
 ### Background
 
 Vulnerability Description Quality can be rated by:
-1. How much information it has on the vulnerability e.g. what [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) are present e.g. 
+#### How much information is in the Vulnerability Description 
+What [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phrasing.pdf) are present e.g. 
    
    1. https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection original version has no vulnerability information:
       > "The Xiaomi Security Center expresses heartfelt thanks to Ken Gannon and Ilyes Beghdadi of NCC Group working with Trend Micro Zero Day Initiative! At the same time, we also welcome more outstanding and professional security experts and security teams to join the Mi Security Center (MiSRC) to jointly ensure the safe access of millions of Xiaomi users worldwide Life."
@@ -145,7 +148,7 @@ Vulnerability Description Quality can be rated by:
           > Microsoft Edge (Chromium-based) Spoofing Vulnerability
       2. https://nvd.nist.gov/vuln/detail/CVE-2022-21904
           > Windows GDI Information Disclosure Vulnerability        
-2. Quality issues
+#### General Vulnerability Description Quality Issues
    1. Having only characters from a specified character set e.g. ASCII or UTF-8.  
    2. Containing HTML Tags
       1. e.g. there are 686 `<p> and </p>` tag pairs, mostly in CVE-2020- CVES, mostly in MicroSoft CVEs
