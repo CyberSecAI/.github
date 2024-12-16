@@ -1,5 +1,3 @@
-
-
 # CVE Enrichment User Scenarios
 
 - [CVE Enrichment User Scenarios](#cve-enrichment-user-scenarios)
@@ -16,7 +14,7 @@
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-1)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-1)
   - [Rate Vulnerability Description Quality](#rate-vulnerability-description-quality)
-    - [Solution Idea](#solution-idea)
+    - [Solution](#solution-1)
     - [Background](#background-2)
     - [Narrative](#narrative-2)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
@@ -28,7 +26,7 @@
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-3)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-3)
   - [Create a CWE Expert: Interactively Assign CWEs](#create-a-cwe-expert-interactively-assign-cwes)
-    - [Solution](#solution-1)
+    - [Solution](#solution-2)
     - [Background](#background-4)
     - [Narrative](#narrative-4)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-4)
@@ -36,6 +34,7 @@
 - [User Stories](#user-stories)
   - [Bulk Check CWEs](#bulk-check-cwes)
   - [CVE Description Duplicates](#cve-description-duplicates)
+
 
 
 
@@ -145,11 +144,14 @@ Vulnerability Description Quality can be rated by:
       1. https://nvd.nist.gov/vuln/detail/CVE-2022-23264
           > Microsoft Edge (Chromium-based) Spoofing Vulnerability
       2. https://nvd.nist.gov/vuln/detail/CVE-2022-21904
-          > Windows GDI Information Disclosure Vulnerability
+          > Windows GDI Information Disclosure Vulnerability        
 2. Quality issues
    1. Having only characters from a specified character set e.g. ASCII or UTF-8.  
-   2. Typos, Spelling and grammar issues.
-   3. Containing HTML tags
+   2. Containing HTML Tags
+      1. e.g. there are 686 `<p> and </p>` tag pairs, mostly in CVE-2020- CVES, mostly in MicroSoft CVEs
+      2. e.g. there are 10  `<strong> and </strong>` tag pairs
+   3. Typos, Spelling and grammar issues.
+   4. JSON Schema Conformance issues
   
 ### Narrative 
 
