@@ -18,6 +18,7 @@
     - [Background](#background-2)
       - [How much information is in the Vulnerability Description](#how-much-information-is-in-the-vulnerability-description)
       - [General Vulnerability Description Quality Issues](#general-vulnerability-description-quality-issues)
+        - [CVEProject/cvelistV5/issues/ related to Quality](#cveprojectcvelistv5issues-related-to-quality)
     - [Narrative](#narrative-2)
       - [Pre-Narrative (how things are now)](#pre-narrative-how-things-are-now-2)
       - [Post-Narrative (how we want things to be in the future - aspirational)](#post-narrative-how-we-want-things-to-be-in-the-future---aspirational-2)
@@ -155,6 +156,17 @@ What [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phr
       2. e.g. there are 10  `<strong> and </strong>` tag pairs
    3. Typos, Spelling and grammar issues.
    4. JSON Schema Conformance issues
+
+
+
+#####  [CVEProject/cvelistV5/issues/](https://github.com/CVEProject/cvelistV5/issues/56) related to Quality
+1. https://github.com/CVEProject/cvelistV5/issues/5 "118955 CVE records don't have an affected product/vendor or version"
+   1. > 118955 records have not a valid affected software in their details. With some random picks to verify, the software is only noted down in the descriptions[] fields as text, but are not set inside the containers/cna/affected Array inside the JSON file.
+2. https://github.com/CVEProject/cvelistV5/issues/64 "A large number of CVEs do not have products and versions"
+   1. >A large number of CVEs do not have products and versions, but corresponding versions such as fastjson can be found on the CVE website
+3. https://github.com/CVEProject/cvelistV5/issues/19 ""opertion" misspelling"
+4. https://github.com/CVEProject/cvelistV5/issues/56 "HTML tag inside json"
+
   
 ### Narrative 
 
