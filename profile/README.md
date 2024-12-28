@@ -37,6 +37,8 @@
 - [User Stories](#user-stories)
   - [Bulk Check CWEs](#bulk-check-cwes)
   - [CVE Description Duplicates](#cve-description-duplicates)
+- [Repo Overview](#repo-overview)
+
 
 
 
@@ -142,12 +144,9 @@ What [Key Details Phrases](https://www.cve.org/Resources/General/Key-Details-Phr
    
    1. https://nvd.nist.gov/vuln/detail/cve-2024-45346#VulnChangeHistorySection original version has no vulnerability information:
       > "The Xiaomi Security Center expresses heartfelt thanks to Ken Gannon and Ilyes Beghdadi of NCC Group working with Trend Micro Zero Day Initiative! At the same time, we also welcome more outstanding and professional security experts and security teams to join the Mi Security Center (MiSRC) to jointly ensure the safe access of millions of Xiaomi users worldwide Life."
-   2. Only Impact:
-      1. https://nvd.nist.gov/vuln/detail/CVE-1999-0015:
-          >"Teardrop IP denial of service."
-      2. https://nvd.nist.gov/vuln/detail/CVE-2020-7689:
-          >"Data is truncated wrong when its length is greater than 255 bytes."
-   4. Product and Weakness: 
+   2. Only Impact: https://nvd.nist.gov/vuln/detail/CVE-1999-0015:
+      >"Teardrop IP denial of service."
+   3. Product and Weakness: 
       1. https://nvd.nist.gov/vuln/detail/CVE-2022-23264
           > Microsoft Edge (Chromium-based) Spoofing Vulnerability
       2. https://nvd.nist.gov/vuln/detail/CVE-2022-21904
@@ -309,3 +308,55 @@ The numbers
 - 669: Largest duplicate group per [plot](https://github.com/CyberSecAI/cve_dedup/blob/main/_top100_sizes_horizontal_plot.png) i.e. 669 CVE Descriptions are (almost) same.
 - 2: The most common number of duplicates per [plot](https://github.com/CyberSecAI/cve_dedup/blob/main/_top50_plot.png)
 
+# Repo Overview
+```mermaid
+classDiagram
+    class VulnerabilityDescriptionQualityChecker {
+        Analysis of KeyPhrases from published CVEs
+        This can be used to assess the quality of CVE Descriptions
+        based on how many of the 8 vulnerability keyphrase types they have.
+    }
+    
+    class cve_info {
+        Vulnerability KeyPhrases extracted from published CVEs
+    }
+    
+    class keyphrase_analyzer {
+        This analyzes and refines the KeyPhrases extracted by the KeyPhraseExtractionModel
+         to improve the dataset so it can be used to finetune a KeyPhraseExtractionModel with more and better data.
+    }
+    
+    class KeyPhraseExtractionModel {
+        FineTuned LLM for extracting KeyPhrases from published CVEs
+        
+    }
+    
+    class cve_source_of_truth {
+        TBC: Single repo as source of truth
+        Collates info from NVD, CVEv5project
+        and other sources
+    }
+    
+    class nvd_cve_data {
+        CVE data downloaded from
+        NVD to a CSV file
+    }
+    
+    class cve_dedup {
+        An analysis of what CVEs are exact / fuzzy duplicates
+    }
+    
+    class CWE_Expert {
+        The corpus files and instructions to build an interative CWE Expert.
+    }
+    
+    class CyberSecAI_github_io {
+        Source for a guide to using LLMs for Cybersecurity
+    }
+
+    VulnerabilityDescriptionQualityChecker --> cve_info
+    cve_info --> keyphrase_analyzer
+    keyphrase_analyzer --> KeyPhraseExtractionModel
+    cve_source_of_truth --> nvd_cve_data
+
+````
