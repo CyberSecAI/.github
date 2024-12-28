@@ -355,8 +355,8 @@ classDiagram
     }
 
     VulnerabilityDescriptionQualityChecker --> cve_info
-    cve_info --> keyphrase_analyzer
-    keyphrase_analyzer --> KeyPhraseExtractionModel
+    keyphrase_analyzer --> cve_info
     cve_source_of_truth --> nvd_cve_data
+    cve_info <-- KeyPhraseExtractionModel
 
 ````
