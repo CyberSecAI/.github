@@ -29,12 +29,15 @@ flowchart TB
     subgraph Building Blocks
         getContent[Get CVE Content<br/>Source of Truth]
         findDuplicates[Find CVE Description Duplicates]
+        getKeyphrases[Get CVE Vulnerability Keyphrases]
         extractKeyphrases[Extract CVE Vulnerability Keyphrases<br/>Gemini 1.5 Flash FineTuned $10]
         assignImpact[Assign MITRE Technical Impact<br/>Gemini 1.5 Flash FineTuned $10]
-        getReferences[Get CVE References Content<br/>Gemini 2.0 Flash Experimental $0]
+        getReferences[Get CVE References Content]
+        getReferencesCrawler[Get CVE References Crawler<br/>Gemini 2.0 Flash Experimental $0]
         createVulnDesc[Create Vulnerability Description<br/>PoC. Any LLM]
         checkQuality[Check Vulnerability Description quality]
-
+        KeyPhraseExtractionModel[KeyPhrase Extraction Model]
+        KeyPhraseExtractionModelAnalyzer[KeyPhrase Extraction Model Analyzer<br>to evaluate, and change, the model output]
 
     end
 
@@ -47,15 +50,20 @@ flowchart TB
     cvePublish --> cweCvePublisher
     cweCvePublisher --> createVulnDesc
     cweCvePublisher --> checkQuality
-    checkQuality --> extractKeyphrases
+    checkQuality --> getKeyphrases
+
 
     cweInteractively --> cweExpert
     bulkAssign --> bulkAssignSolution
     bulkAssignSolution --> getContent
-    bulkAssignSolution --> extractKeyphrases
+    bulkAssignSolution --> getKeyphrases
     bulkAssignSolution --> getReferences
     bulkAssignSolution --> assignImpact
     assignImpact --> extractKeyphrases
+    getReferences --> getReferencesCrawler
+    getKeyphrases --> extractKeyphrases
+    extractKeyphrases --> KeyPhraseExtractionModel
+    extractKeyphrases --> KeyPhraseExtractionModelAnalyzer
 
     %% Styling
     style cweCvePublisher fill:#d3d3d3,stroke:#000,stroke-width:2,stroke-dasharray:5 5
@@ -78,6 +86,9 @@ flowchart TB
     click extractKeyphrases "https://github.com/CyberSecAI/cve_info" "Extract Keyphrases Tool" _blank
     %% click assignImpact "https://example.com/assign-impact" "Assign MITRE Technical Impact Tool" _blank
     click getReferences "https://github.com/CyberSecAI/cve_info_refs" "Get CVE References" _blank
+    click getReferencesCrawler "https://github.com/CyberSecAI/cve_info_refs_crawler" "Get CVE References" _blank
+    click KeyPhraseExtractionModel "https://github.com/CyberSecAI/KeyPhraseExtractionModel" "KeyPhrase Extraction Model" _blank
+    click KeyPhraseExtractionModelAnalyzer "https://github.com/CyberSecAI/keyphrase_analyzer" "KeyPhrase Extraction Model" _blank
 ````
 
 # CVE Enrichment User Scenarios
