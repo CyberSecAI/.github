@@ -2,6 +2,7 @@
 # Overview
 
 ```mermaid
+
 flowchart TB
     %% Diagram direction: top-to-bottom (TB)
 
@@ -36,7 +37,6 @@ flowchart TB
         getReferencesCrawler[Get CVE References Crawler<br/>Gemini 2.0 Flash Experimental $0]
         createVulnDesc[Create Vulnerability Description<br/>PoC. Any LLM]
         checkQuality[Check Vulnerability Description quality]
-        KeyPhraseExtractionModel[KeyPhrase Extraction Model]
         KeyPhraseExtractionModelAnalyzer[KeyPhrase Extraction Model Analyzer<br>to evaluate, and change, the model output]
 
     end
@@ -58,11 +58,11 @@ flowchart TB
     bulkAssignSolution --> getContent
     bulkAssignSolution --> getKeyphrases
     bulkAssignSolution --> getReferences
-    bulkAssignSolution --> assignImpact
-    assignImpact --> extractKeyphrases
+    
+    getKeyphrases --> assignImpact 
     getReferences --> getReferencesCrawler
     getKeyphrases --> extractKeyphrases
-    extractKeyphrases --> KeyPhraseExtractionModel
+    getKeyphrases --> KeyPhraseExtractionModelAnalyzer
     extractKeyphrases --> KeyPhraseExtractionModelAnalyzer
 
     %% Styling
@@ -73,8 +73,9 @@ flowchart TB
     click cweInteractively "https://github.com/CyberSecAI#create-a-cwe-expert-interactively-assign-cwes" "Interactively Assign CWEs" _blank
     click vulnDesc "https://github.com/CyberSecAI#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information" "Create Vulnerability Description" _blank
     click checkQuality "https://github.com/CyberSecAI/VulnerabilityDescriptionQualityChecker" "Check Vulnerability Description quality" _blank
-    click impact "https://example.com/impact-and-rootcause" "Understand Vulnerability Impact, Rootcause..." _blank
+    
     click bulkAssign "https://github.com/CyberSecAI#bulk-assign-cwes" "Bulk Assign CWEs" _blank
+    click assignImpact "https://github.com/CyberSecAI/Mitre_technical_impact_dataset" _blank
 
     click cweExpert "https://github.com/CyberSecAI/CWE-Expert" "CWE Expert Tool" _blank
     click createVulnDesc "https://github.com/CyberSecAI#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information" "Vulnerability Description Tool" _blank
@@ -83,12 +84,14 @@ flowchart TB
 
     click getContent "https://github.com/CyberSecAI/cve_source_of_truth" "Get CVE Content" _blank
     click findDuplicates "https://github.com/CyberSecAI/cve_dedup" "Find CVE Duplicates" _blank
-    click extractKeyphrases "https://github.com/CyberSecAI/cve_info" "Extract Keyphrases Tool" _blank
-    %% click assignImpact "https://example.com/assign-impact" "Assign MITRE Technical Impact Tool" _blank
+    click getKeyphrases "https://github.com/CyberSecAI/cve_info" "Get Keyphrases" _blank
+    
+
     click getReferences "https://github.com/CyberSecAI/cve_info_refs" "Get CVE References" _blank
     click getReferencesCrawler "https://github.com/CyberSecAI/cve_info_refs_crawler" "Get CVE References" _blank
-    click KeyPhraseExtractionModel "https://github.com/CyberSecAI/KeyPhraseExtractionModel" "KeyPhrase Extraction Model" _blank
+    click extractKeyphrases "https://github.com/CyberSecAI/KeyPhraseExtractionModel" "KeyPhrase Extraction Model" _blank
     click KeyPhraseExtractionModelAnalyzer "https://github.com/CyberSecAI/keyphrase_analyzer" "KeyPhrase Extraction Model" _blank
+
 ````
 
 # CVE Enrichment User Scenarios
