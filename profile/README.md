@@ -77,7 +77,7 @@ flowchart TB
     click findDuplicates "https://github.com/CyberSecAI/cve_dedup" "Find CVE Duplicates" _blank
     click extractKeyphrases "https://github.com/CyberSecAI/cve_info" "Extract Keyphrases Tool" _blank
     %% click assignImpact "https://example.com/assign-impact" "Assign MITRE Technical Impact Tool" _blank
-    click getReferences "https://github.com/CyberSecAI/cve_reference_link_crawler" "Get CVE References" _blank
+    click getReferences "https://github.com/CyberSecAI/cve_info_refs" "Get CVE References" _blank 
 
 ````
 
