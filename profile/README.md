@@ -1,3 +1,86 @@
+
+# Overview
+
+```mermaid
+flowchart TB
+    %% Diagram direction: top-to-bottom (TB)
+
+    %% Point of Interaction
+    subgraph Point of Interaction
+        user((User))
+        github((Automation via GitHub))
+    end
+
+    %% User Scenarios
+    subgraph User Scenarios
+        cweInteractively[Interactively Assign CWEs]
+        cvePublish[Interactively populate CVE fields for CVE Publication]
+        bulkAssign[Bulk Assign CWEs]
+    end
+
+    %% Solutions
+    subgraph Solutions
+        cweExpert[CWE Expert<br/>NotebookLM Gemini Pro Free]
+        cweCvePublisher[CVE CWE Oracle]
+        bulkAssignSolution[Bulk Assign CWEs]
+    end
+
+    %% Building Blocks
+    subgraph Building Blocks
+        getContent[Get CVE Content<br/>Source of Truth]
+        findDuplicates[Find CVE Description Duplicates]
+        extractKeyphrases[Extract CVE Vulnerability Keyphrases<br/>Gemini 1.5 Flash FineTuned $10]
+        assignImpact[Assign MITRE Technical Impact<br/>Gemini 1.5 Flash FineTuned $10]
+        getReferences[Get CVE References Content<br/>Gemini 2.0 Flash Experimental $0]
+        createVulnDesc[Create Vulnerability Description<br/>PoC. Any LLM]
+        checkQuality[Check Vulnerability Description quality]
+
+
+    end
+
+    %% Connections between sections
+
+    github --> bulkAssign
+    user --> cweInteractively
+    user --> cvePublish
+
+    cvePublish --> cweCvePublisher
+    cweCvePublisher --> createVulnDesc
+    cweCvePublisher --> checkQuality
+    checkQuality --> extractKeyphrases
+
+    cweInteractively --> cweExpert
+    bulkAssign --> bulkAssignSolution
+    bulkAssignSolution --> getContent
+    bulkAssignSolution --> extractKeyphrases
+    bulkAssignSolution --> getReferences
+    bulkAssignSolution --> assignImpact
+    assignImpact --> extractKeyphrases
+
+    %% Styling
+    style cweCvePublisher fill:#d3d3d3,stroke:#000,stroke-width:2,stroke-dasharray:5 5
+    style createVulnDesc fill:#d3d3d3,stroke:#000,stroke-width:2,stroke-dasharray:5 5
+
+    %% Clickable links (replace with your URLs)
+    click cweInteractively "https://github.com/CyberSecAI#create-a-cwe-expert-interactively-assign-cwes" "Interactively Assign CWEs" _blank
+    click vulnDesc "https://github.com/CyberSecAI#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information" "Create Vulnerability Description" _blank
+    click checkQuality "https://github.com/CyberSecAI/VulnerabilityDescriptionQualityChecker" "Check Vulnerability Description quality" _blank
+    click impact "https://example.com/impact-and-rootcause" "Understand Vulnerability Impact, Rootcause..." _blank
+    click bulkAssign "https://github.com/CyberSecAI#bulk-assign-cwes" "Bulk Assign CWEs" _blank
+
+    click cweExpert "https://github.com/CyberSecAI/CWE-Expert" "CWE Expert Tool" _blank
+    click createVulnDesc "https://github.com/CyberSecAI#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information" "Vulnerability Description Tool" _blank
+    click checkDescQuality "https://github.com/CyberSecAI#create-vulnerability-description-from-advisory-patch-and-other-existing-vulnerability-information" "Check Description Quality Tool" _blank
+    click bulkAssignSolution "https://github.com/CyberSecAI/top25_cwe_assign_compare" "Bulk Assign Solution Tool" _blank
+
+    click getContent "https://github.com/CyberSecAI/cve_source_of_truth" "Get CVE Content" _blank
+    click findDuplicates "https://github.com/CyberSecAI/cve_dedup" "Find CVE Duplicates" _blank
+    click extractKeyphrases "https://github.com/CyberSecAI/cve_info" "Extract Keyphrases Tool" _blank
+    %% click assignImpact "https://example.com/assign-impact" "Assign MITRE Technical Impact Tool" _blank
+    click getReferences "https://github.com/CyberSecAI/cve_reference_link_crawler" "Get CVE References" _blank
+
+````
+
 # CVE Enrichment User Scenarios
 
 - [CVE Enrichment User Scenarios](#cve-enrichment-user-scenarios)
